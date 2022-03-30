@@ -1,7 +1,12 @@
 {
-	"name": "app",
+	"name": "vanish",
 	"version": "1.0.0",
 	"main": "node_modules/expo/AppEntry.js",
+	"author": {
+		"name": "Christopher Jones",
+		"email": "tkcwebdev@gmail.com",
+		"url": "https://thekirkconcept.com"
+	},
 	"scripts": {
 		"start": "expo start",
 		"android": "expo start --android",
