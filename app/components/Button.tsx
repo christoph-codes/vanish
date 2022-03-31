@@ -1,14 +1,16 @@
-import { TouchableOpacity, Text, StyleSheet } from 'react-native'
+import { TouchableOpacity, Text, StyleSheet, PressableProps, TouchableOpacityProps } from 'react-native'
 
 interface IButtonProps {
 	variant: 'primary' | 'secondary'
 	children: string
+	rest?: any
 }
 
 export default function Button({
 	variant = 'primary',
 	children,
-}: IButtonProps) {
+	...rest
+}: IButtonProps & PressableProps & TouchableOpacityProps) {
 	const styles = StyleSheet.create({
 		Button: {
 			marginBottom: 16,
@@ -37,7 +39,7 @@ export default function Button({
 		},
 	})
 	return (
-		<TouchableOpacity style={[styles.Button, styles[variant]]}>
+		<TouchableOpacity style={[styles.Button, styles[variant]]} {...rest}>
 			<Text style={styles.ButtonText}>{children}</Text>
 		</TouchableOpacity>
 	)
