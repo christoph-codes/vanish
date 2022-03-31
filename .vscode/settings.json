@@ -1,0 +1,18 @@
+{
+	"files.associations": {
+		"*.js": "javascript",
+		"*.jsx": "javascriptreact",
+		"*.ts": "typescript",
+		"*.tsx": "typescriptreact"
+	},
+	"workbench.colorTheme": "Solarized Dark",
+	"editor.formatOnSave": true,
+	"eslint.packageManager": "yarn",
+	"eslint.validate": ["typescript"],
+	"[typescript]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	},
+	"eslint.probe": ["html", "vue", "markdown", "typescript"],
+	"editor.insertSpaces": true,
+	"editor.detectIndentation": false
+}
