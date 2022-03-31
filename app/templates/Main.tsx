@@ -1,12 +1,12 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, SafeAreaView } from "react-native";
 
 export default function Main({ children }: any) {
     return (
-        <View style={styles.Main}>
+        <SafeAreaView style={styles.Main}>
             <View style={styles.MainContainer}>
                 {children}
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 
@@ -19,5 +19,6 @@ const styles = StyleSheet.create({
     },
     MainContainer: {
         padding: 16,
+        flex: 1,
     }
 })
