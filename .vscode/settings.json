@@ -5,7 +5,6 @@
 		"*.ts": "typescript",
 		"*.tsx": "typescriptreact"
 	},
-	"workbench.colorTheme": "Solarized Dark",
 	"editor.formatOnSave": true,
 	"eslint.packageManager": "yarn",
 	"eslint.validate": ["typescript"],
