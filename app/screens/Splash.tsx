@@ -1,17 +1,16 @@
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import Title from "../components/Title";
 import Main from "../templates/Main";
 import P from '../components/P'
 import Button from '../components/Button'
 import Row from '../components/Row'
-import HR from '../components/HR'
 import Section from '../components/Section'
 
 export default function Splash({ navigation }: any) {
     return (
         <Main style={styles.Splash}>
             <ScrollView>
-                <Title align="center" tag="h2">Splash</Title>
+                <Title align="center" tag="h2">Splash!</Title>
                 <Section>
                     <Title tag="h2">Welcome to Vanish</Title>
                     <Title tag="h3">Welcome to Vanish</Title>
@@ -46,7 +45,5 @@ export default function Splash({ navigation }: any) {
 
 const styles = StyleSheet.create({
     Splash: {
-        // alignItems: 'center',
-        // justifyContent: 'center',
     }
 })
