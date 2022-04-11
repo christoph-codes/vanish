@@ -20,5 +20,6 @@ const styles = StyleSheet.create({
     MainContainer: {
         padding: 16,
         flex: 1,
+        alignSelf: 'stretch',
     }
 })
