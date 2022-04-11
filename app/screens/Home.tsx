@@ -1,16 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     StyleSheet,
-    ScrollView,
     View,
-    TextInput,
+    Image,
 } from 'react-native';
 import Main from '../templates/Main'
-import Title from '../components/Title'
 import P from '../components/P'
 import Button from '../components/Button'
-import HR from '../components/HR'
-import Section from '../components/Section'
 
 interface IHomeProps {
     navigation: any;
@@ -21,22 +17,12 @@ export default function Home({ navigation }: IHomeProps) {
         <Main>
             <View style={styles.Home}>
                 <View>
-                    <Title tag="h1" align="center">
-                        Vanish
-                    </Title>
-                    <TextInput></TextInput>
+                    <Image style={styles.logo} source={require('../assets/vanish_logo.png')} width={200} resizeMode='center' />
                     <P align="center">
-                        Open up App.tsx to start working on your app! Lorem
-                        ipsum dolor sit amet consectetur adipisicing elit.
-                        Accusantium illo quam eos labore, provident
-                        delectus. In natus, quasi dolores suscipit ratione
-                        dolorem possimus! Ipsam aperiam nam earum ducimus
-                        dolorum repudiandae!
+                        True privacy can only be achieved when all of your data is not saved. Vanish only stores the last message until you respond.
                     </P>
-                    <Button onPress={() =>
-                        navigation.navigate('Splash')
-                    } variant="secondary">Splash</Button>
-                    <HR />
+                    <Button onPress={() => navigation.navigate('Login')} >Login</Button>
+                    <Button onPress={() => navigation.navigate('Splash')} variant="secondary">Splash</Button>
                 </View>
             </View>
         </Main>
@@ -46,5 +32,9 @@ const styles = StyleSheet.create({
     Home: {
         flex: 1,
         justifyContent: 'center',
+    },
+    logo: {
+        alignSelf: 'center',
+        marginBottom: 16,
     }
 })
