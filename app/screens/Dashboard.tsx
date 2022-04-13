@@ -1,8 +1,10 @@
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Title from '../components/Title';
+import { useUser } from '../providers/UserProvider';
 import TemplateDashboard from '../templates/TemplateDashboard';
 
 export default function Dashboard({ navigation, route }: any) {
+    const { user } = useUser();
     const conversations: Iconversation[] = [
         {
             id: 1,
@@ -50,7 +52,7 @@ export default function Dashboard({ navigation, route }: any) {
         )
     };
     return (
-        <TemplateDashboard navigation={navigation}>
+        <TemplateDashboard screenTitle={`Hello, ${user.username}!`} navigation={navigation}>
             <View style={styles.Dashboard}>
                 <Title align="center" tag="h2">Conversations</Title>
                 <FlatList data={conversations} renderItem={Conversation} />

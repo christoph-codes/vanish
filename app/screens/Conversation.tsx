@@ -6,7 +6,7 @@ import TemplateDashboard from '../templates/TemplateDashboard';
 export default function Conversation({ navigation, route }: any) {
     const convo = route.params;
     return (
-        <TemplateDashboard screenTitle={convo.name}>
+        <TemplateDashboard screenTitle={convo.name} navigation={navigation}>
             <View style={styles.Conversation}>
                 <Text>{convo.name}</Text>
                 <Messages messages={convo.messages} />
