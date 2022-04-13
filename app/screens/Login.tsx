@@ -11,30 +11,27 @@ import Button from '../components/Button'
 import Input from '../components/Input'
 import Row from '../components/Row'
 import { useUser } from '../providers/UserProvider';
-
 interface ILoginProps {
     navigation: any;
 }
 
 export default function Login({ navigation }: ILoginProps) {
-    const { user, setUser, error, setError } = useUser();
-    const [username, setUsername] = useState('');
+    const { error, signIn } = useUser();
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loginError, setLoginError] = useState({ code: '', message: '' })
     const login = () => {
-        if (username && password) {
+        if (email && password) {
             console.log('Signup');
-            setError('');
-            const credentials = {
-                username,
-                password,
+            setLoginError({ code: '', message: '' });
+            signIn(email, password);
+            if (!error) {
+                navigation.navigate('Dashboard');
+            } else {
+                setLoginError(error);
             }
-            setError('')
-            setUser({
-                username
-            })
-            navigation.navigate('Dashboard');
         } else {
-            setError('You must complete all fields');
+            setLoginError({ code: '002', message: 'You must complete all fields' });
         }
 
     }
@@ -45,9 +42,9 @@ export default function Login({ navigation }: ILoginProps) {
                     <Title tag="h1" align="center">
                         Login
                     </Title>
-                    <Input placeholder="Username" placeholderTextColor="#555555" value={username} onChangeText={setUsername} />
+                    <Input placeholder="Email" placeholderTextColor="#555555" value={email} onChangeText={setEmail} />
                     <Input secureTextEntry placeholder="Password" placeholderTextColor="#555555" value={password} onChangeText={setPassword} />
-                    {error ? <Text style={styles.errorText}>{error}</Text> : <></>}
+                    {loginError.message ? <Text style={styles.errorText}>{loginError.message}</Text> : <></>}
                     <Row>
                         <Button onPress={login} >Login</Button>
                         <Button variant="secondary" onPress={() => navigation.navigate('Home')} >Cancel</Button>
