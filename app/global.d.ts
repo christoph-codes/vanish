@@ -1,6 +1,4 @@
 /* eslint-disable no-unused-vars */
-declare type userId = number;
-
 type message = {
     sender: number;
     receiver: number;
@@ -9,7 +7,16 @@ type message = {
 
 declare interface Iconversation {
     id: number;
-    users: userId[];
+    users: number[];
     name: string,
     messages?: message[];
+}
+declare interface IUser {
+    id: number,
+    username: string,
+    email: string,
+    password?: string,
+    fname?: string,
+    lname?: string,
+    conversations?: Iconversation[],
 }
