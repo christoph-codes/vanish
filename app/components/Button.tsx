@@ -1,53 +1,50 @@
-import { TouchableOpacity, Text, StyleSheet, PressableProps, TouchableOpacityProps } from 'react-native'
+import { ButtonProps } from 'react-native';
+import { Button as NButton } from 'native-base';
 
-interface IButtonProps {
-    variant?: 'primary' | 'secondary'
-    children: string
-    rest?: any
+interface IButtonProps extends ButtonProps {
+    variant?: 'primary' | 'secondary';
+    children: string;
+    rest?: any;
 }
 
-export default function Button({
+const Button = ({
     variant = 'primary',
-    children,
+    children = '',
     ...rest
-}: IButtonProps & PressableProps & TouchableOpacityProps) {
-    const styles = StyleSheet.create({
-        Button: {
-            marginBottom: 24,
-            justifyContent: 'center',
-            paddingHorizontal: 24,
-            paddingVertical: 16,
-            borderRadius: 8,
-            alignItems: 'center',
-            alignSelf: 'stretch',
-        },
-        ButtonText: {
-            color: '#eee',
-            fontWeight: 'bold',
-            fontSize: 18,
-        },
-        primary: {
-            backgroundColor: '#999',
-            borderStyle: 'solid',
-            borderColor: '#999',
-            borderWidth: 2,
-        },
-        primaryButtonText: {
-            color: '#eee',
-        },
-        secondary: {
-            backgroundColor: 'transparent',
-            borderStyle: 'solid',
-            borderColor: '#222',
-            borderWidth: 2,
-        },
-        secondaryButtonText: {
-            color: '#777',
-        },
-    })
+}: IButtonProps & any) => {
+    const getVariant = () => {
+        switch (variant) {
+            case 'primary':
+                return {
+                    backgroundColor: 'brand.primary',
+
+                }
+            case 'secondary':
+                return {
+                    backgroundColor: 'transparent',
+                    borderWidth: '2',
+                    borderColor: 'brand.primary',
+                }
+            default:
+                return {
+                    backgroundColor: 'brand.primary',
+                }
+        }
+    }
     return (
-        <TouchableOpacity style={[styles.Button, styles[variant]]} {...rest}>
-            <Text style={styles.ButtonText}>{children}</Text>
-        </TouchableOpacity>
+        <NButton
+            fontSize='lg'
+            fontWeight='bold'
+            padding={4}
+            paddingY={8}
+            marginBottom={4}
+            borderRadius={8}
+            {...getVariant()}
+            {...rest}
+        >
+            {children}
+        </NButton>
     )
 }
+
+export default Button;

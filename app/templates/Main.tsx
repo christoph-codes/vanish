@@ -1,4 +1,4 @@
-import { View, StyleSheet, SafeAreaView } from "react-native";
+import { View, StyleSheet, SafeAreaView, StatusBar } from "react-native";
 
 export default function Main({ children }: any) {
     return (
@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        marginTop: StatusBar.currentHeight,
     },
     MainContainer: {
         padding: 16,

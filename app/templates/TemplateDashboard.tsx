@@ -5,7 +5,7 @@ import Main from '../templates/Main';
 import Row from '../components/Row';
 import { useUser } from '../providers/UserProvider';
 
-export default function TemplateDashboard({ children, navigation, screenTitle }: any) {
+export default function TemplateDashboard({ children, navigation, backButton, screenTitle }: any) {
     const { user, logout } = useUser();
     const logoutUser = () => {
         logout();
@@ -14,15 +14,18 @@ export default function TemplateDashboard({ children, navigation, screenTitle }:
     return (
         <Main style={styles.Dashboard}>
             <Row style={styles.Content}>
-                <Title tag="h4">{screenTitle}</Title>
+                {backButton && (
+                    <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
+                        <Text style={styles.back}>Back</Text>
+                    </TouchableOpacity>
+                )}
+                <Title align='center' tag="h4">{screenTitle}</Title>
                 <TouchableOpacity onPress={() => logoutUser()}>
                     <Text style={styles.logout}>Logout</Text>
                 </TouchableOpacity>
             </Row>
             <HR />
-            <ScrollView>
-                {children}
-            </ScrollView>
+            {children}
         </Main>
     )
 }
@@ -39,5 +42,9 @@ const styles = StyleSheet.create({
     logout: {
         color: '#999',
         textAlign: 'right',
+    },
+    back: {
+        color: '#999',
+        textAlign: 'left',
     }
 })

@@ -33,7 +33,6 @@ export default function Login({ navigation }: ILoginProps) {
         } else {
             setLoginError({ code: '002', message: 'You must complete all fields' });
         }
-
     }
     return (
         <Main>
@@ -47,7 +46,7 @@ export default function Login({ navigation }: ILoginProps) {
                     {loginError.message ? <Text style={styles.errorText}>{loginError.message}</Text> : <></>}
                     <Row>
                         <Button onPress={login} >Login</Button>
-                        <Button variant="secondary" onPress={() => navigation.navigate('Home')} >Cancel</Button>
+                        <Button onPress={() => navigation.navigate('Home')} >Cancel</Button>
                     </Row>
                 </View>
             </KeyboardAvoidingView>

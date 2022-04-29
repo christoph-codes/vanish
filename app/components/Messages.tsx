@@ -13,7 +13,6 @@ export default function Messages({ messages }: any) {
 
 const styles = StyleSheet.create({
     Messages: {
-        alignSelf: 'stretch',
-        flex: 1,
+        // alignSelf: 'stretch',
     }
 })

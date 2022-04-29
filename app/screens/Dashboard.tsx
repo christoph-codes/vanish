@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, StyleSheet, Text, TouchableOpacity, View, ActionSheetIOS } from 'react-native';
 import Title from '../components/Title';
 import { useUser } from '../providers/UserProvider';
 import TemplateDashboard from '../templates/TemplateDashboard';
@@ -52,7 +52,7 @@ export default function Dashboard({ navigation, route }: any) {
         )
     };
     return (
-        <TemplateDashboard screenTitle={`Hello, ${user.username}!`} navigation={navigation}>
+        <TemplateDashboard screenTitle={user.username} navigation={navigation}>
             <View style={styles.Dashboard}>
                 <Title align="center" tag="h2">Conversations</Title>
                 <FlatList data={conversations} renderItem={Conversation} />
