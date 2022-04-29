@@ -3,7 +3,6 @@ import { useUser } from '../providers/UserProvider';
 
 export default function Message({ data }: any) {
     const { user } = useUser();
-    console.log('user:', user);
     const { sender, message } = data;
     return (
         <View style={[styles.Message, sender === 2 ? styles.sent : styles.received]}>
