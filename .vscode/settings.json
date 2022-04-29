@@ -13,5 +13,6 @@
 	},
 	"eslint.probe": ["html", "vue", "markdown", "typescript"],
 	"editor.insertSpaces": true,
-	"editor.detectIndentation": false
+	"editor.detectIndentation": false,
+	"prettier.printWidth": 80
 }
